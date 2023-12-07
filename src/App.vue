@@ -1,18 +1,34 @@
 <template>
+  <!-- <div v-if="1 == 2">
+    안녕
+  </div>
+  <div v-else-if="3 ==3">
+    안녕 elseif
+  </div>
+  <div v-else>
+    안녕 else
+  </div> -->
+
+
+  
+  <Modal/>
+
   <div class="black-bg" v-if="모달창열렸니 == true">
     <div class="white-bg">
-        <h4>상세페이지임</h4>
-        <p>상세페이지 내용임</p>
+        <h4>{{원룸들[누른버튼].title}}</h4>
+        <img :src="원룸들[누른버튼].image" style="width : 50%">
+        <p>{{원룸들[누른버튼].content}}</p>
+        <p>가격 : {{원룸들[누른버튼].price}}원</p>
+        <Discount/>
+        <button @click="모달창열렸니 = false">닫기</button>
     </div>
-    <button @click="모달창열렸니 = false">닫기</button>
   </div>
-
-
 
   <div class="menu">
     <a v-for="a in 메뉴들" :key="a">{{ a }}</a>
   </div>
 
+  <Discount/>
 
   <img alt="Vue logo" src="./assets/logo.png">
   <!-- <div v-for="(a,i) in products" :key="i">
@@ -22,7 +38,7 @@
 
   <div v-for="(a,i) in 원룸들" :key="a">
     <img :src="원룸들[i].image" class="room-img">
-    <h4>{{원룸들[i].title}}</h4>
+    <h4 @click ="모달창열렸니 = true; 누른버튼 = i">{{원룸들[i].title}}</h4>
     <p>{{원룸들[i].price}}원</p>
   </div>
   
@@ -30,12 +46,15 @@
 
 <script>
 
-import data from './assets/oneroom';
+import data from './assets/oneroom.js';
+import Discount from './Discount.vue';
+import Modal from './Modal.vue';
 
 export default {
   name: 'App',
   data(){
     return{
+      누른버튼 : 0,
       원룸들 : data,
       모달창열렸니 : false,
       메뉴들 : ['Home', 'Shop', 'About'],
@@ -53,6 +72,8 @@ export default {
   },
 
   components: {
+    Discount : Discount,
+    Modal : Modal,
   }
 }
 </script>
@@ -106,4 +127,11 @@ div{
   padding: 20px;
 }
 
+.discount{
+  background: gray;
+  padding : 10px;
+  margin : 10px;
+  border-radius: 5px;
+
+}
 </style>
