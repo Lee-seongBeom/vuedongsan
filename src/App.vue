@@ -1,17 +1,7 @@
 <template>
-  <!-- <div v-if="1 == 2">
-    안녕
-  </div>
-  <div v-else-if="3 ==3">
-    안녕 elseif
-  </div>
-  <div v-else>
-    안녕 else
-  </div> -->
 
 
-  
-  <Modal/>
+  <Modal :원룸들= "원룸들" :누른버튼="누른버튼" :모달창열렸니="모달창열렸니"/>
 
   <div class="black-bg" v-if="모달창열렸니 == true">
     <div class="white-bg">
@@ -33,14 +23,21 @@
   <img alt="Vue logo" src="./assets/logo.png">
   <!-- <div v-for="(a,i) in products" :key="i">
     <h4>{{a}}</h4>
-    <p>50 만원</p>
+    <p>50 만원</p>tjdn
   </div> -->
 
+  <Card :원룸="원룸들[0]"/>
+  <Card :원룸="원룸들[1]"/>
+  <Card :원룸="원룸들[2]"/>
+  <Card :원룸="원룸들[3]"/>
+  <Card :원룸="원룸들[4]"/>
+<!--   
   <div v-for="(a,i) in 원룸들" :key="a">
     <img :src="원룸들[i].image" class="room-img">
     <h4 @click ="모달창열렸니 = true; 누른버튼 = i">{{원룸들[i].title}}</h4>
     <p>{{원룸들[i].price}}원</p>
-  </div>
+  </div> -->
+  
   
 </template>
 
@@ -49,6 +46,7 @@
 import data from './assets/oneroom.js';
 import Discount from './Discount.vue';
 import Modal from './Modal.vue';
+import Card from './Card.vue';
 
 export default {
   name: 'App',
@@ -74,6 +72,7 @@ export default {
   components: {
     Discount : Discount,
     Modal : Modal,
+    Card : Card,
   }
 }
 </script>
