@@ -4,8 +4,18 @@
       <img :src="원룸들[누른버튼].image" style="width : 50%">
         <h4>{{원룸들[누른버튼].title}}</h4>
         <p>{{원룸들[누른버튼].content}}</p>
-        <p>가격 : {{원룸들[누른버튼].price}}원</p>
-        <Discount/>
+        <!-- <input @input="month = $event.target.value"/> -->
+        <input v-model.number="month" />
+        <!-- <textarea v-model="month"></textarea> -->
+        <!-- <select v-model="month">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+        </select> -->
+        <!-- <input type="checkbox" v-model="month"/> -->
+
+        <p>{{month}}개월 선택함 : {{원룸들[누른버튼].price + month}}원</p>
+        <!-- <Discount/> -->
         <button @click="closeBtn">닫기</button>
     </div>
   </div>
@@ -14,6 +24,11 @@
 <script>
 export default {
     name : 'Modal',
+    data(){
+      return {
+        month : '1',
+      }
+    },
     props : {
       원룸들 : Array,
       누른버튼 : Number,
