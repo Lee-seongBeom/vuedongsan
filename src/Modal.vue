@@ -6,7 +6,7 @@
         <p>{{원룸들[누른버튼].content}}</p>
         <p>가격 : {{원룸들[누른버튼].price}}원</p>
         <Discount/>
-        <!-- <button @click="모달창열렸니 = false">닫기</button> -->
+        <button @click="closeBtn">닫기</button>
     </div>
   </div>
 </template>
@@ -18,6 +18,11 @@ export default {
       원룸들 : Array,
       누른버튼 : Number,
       모달창열렸니 : Boolean,
+    },
+    methods: {
+      closeBtn(){
+        this.$emit('closeBtn', this.모달창열렸니)
+      }
     },
 }
 </script>

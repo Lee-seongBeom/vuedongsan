@@ -26,11 +26,14 @@
     <p>50 만원</p>tjdn
   </div> -->
 
-  <Card :원룸="원룸들[0]"/>
-  <Card :원룸="원룸들[1]"/>
+  <Card @openModal="모달창열렸니 = true; 누른버튼 = $event" :원룸="원룸들[i]" v-for="(작명,i) in 원룸들" :key="작명"/>
+  <!-- <Card :원룸="원룸들[1]"/>
   <Card :원룸="원룸들[2]"/>
   <Card :원룸="원룸들[3]"/>
-  <Card :원룸="원룸들[4]"/>
+  <Card :원룸="원룸들[4]"/> -->
+
+
+  
 <!--   
   <div v-for="(a,i) in 원룸들" :key="a">
     <img :src="원룸들[i].image" class="room-img">
