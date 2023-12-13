@@ -1,9 +1,9 @@
 <template>
 
 
-  <Modal :원룸들= "원룸들" :누른버튼="누른버튼" :모달창열렸니="모달창열렸니"/>
+  <Modal @closeBtn = "모달창열렸니 = false;" :원룸들= "원룸들" :누른버튼="누른버튼" :모달창열렸니="모달창열렸니" />
 
-  <div class="black-bg" v-if="모달창열렸니 == true">
+  <!-- <div class="black-bg" v-if="모달창열렸니 == true">
     <div class="white-bg">
         <h4>{{원룸들[누른버튼].title}}</h4>
         <img :src="원룸들[누른버튼].image" style="width : 50%">
@@ -12,7 +12,7 @@
         <Discount/>
         <button @click="모달창열렸니 = false">닫기</button>
     </div>
-  </div>
+  </div> -->
 
   <div class="menu">
     <a v-for="a in 메뉴들" :key="a">{{ a }}</a>
@@ -33,7 +33,7 @@
   <Card :원룸="원룸들[4]"/> -->
 
 
-  
+
 <!--   
   <div v-for="(a,i) in 원룸들" :key="a">
     <img :src="원룸들[i].image" class="room-img">
