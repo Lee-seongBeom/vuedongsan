@@ -21,6 +21,11 @@
 
   <Discount/>
 
+  <button @click="priceSort">가격순</button>
+  <button @click="priceRSort">가격역순</button>
+  <button @click="nameSort">상품명 가나다순</button>
+  <button @click="sortBack">되돌리기</button>
+
   <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
   <!-- <div v-for="(a,i) in products" :key="i">
     <h4>{{a}}</h4>
@@ -64,12 +69,31 @@ export default {
       priceRandom : '가격은아무거나',
       productsStyle : 'color : blue',
       신고수 : [0, 0, 0,],
+      원룸들오리지널 : [...data],
     }
   },
   methods :{
     increase(i){
       this.신고수[i]++;
     },
+    priceSort(){
+      this.원룸들.sort(function(a,b){
+        return a.price-b.price;
+      });
+    },
+    priceRSort(){
+      this.원룸들.sort(function(a,b){
+        return b.price-a.price;
+      });
+    },
+    nameSort(){
+      this.원룸들.sort(function(a,b){
+        return a.title.localeCompare(b.title);
+      });
+    },
+    sortBack(){
+      this.원룸들 = [...this.원룸들오리지널];
+    },  
     
   },
 
