@@ -19,7 +19,7 @@
     <a v-for="a in 메뉴들" :key="a">{{ a }}</a>
   </div>
 
-  <Discount/>
+  <Discount v-if="showDiscount == true"/>
 
   <button @click="priceSort">가격순</button>
   <button @click="priceRSort">가격역순</button>
@@ -57,6 +57,7 @@ import Discount from './Discount.vue';
 import Modal from './Modal.vue';
 import Card from './Card.vue';
 
+
 export default {
   name: 'App',
   data(){
@@ -70,6 +71,7 @@ export default {
       productsStyle : 'color : blue',
       신고수 : [0, 0, 0,],
       원룸들오리지널 : [...data],
+      showDiscount : true,
     }
   },
   methods :{
@@ -101,9 +103,26 @@ export default {
     Discount : Discount,
     Modal : Modal,
     Card : Card,
-  }
+  },
+
+  mounted() {  // lifecycle hook
+    setTimeout(() => {
+      this.showDiscount = false;
+    }, 2000);
+  },
+
+
+  
 }
 </script>
+// 숙제1.
+// discount 1초마다 1%감소
+<!-- setInterval(() => {
+  
+}, 1000); -->
+
+// 숙제2.
+// 모달창의 input창에 2를 기입했을 대 알림창 띄우기
 
 <style>
 #app {
