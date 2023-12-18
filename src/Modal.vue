@@ -39,6 +39,21 @@ export default {
         this.$emit('closeBtn', this.모달창열렸니)
       }
     },
+    watch :{ // 감시자 느낌
+      month(a){ //data명과 같게 추가
+        // 사용자가 month를 글자로 입력하면 경고문 띄우기
+        if(a >= 13){
+          alert('13이상 입력하지 마셈');
+          this.month = 1;
+        }
+        
+        if(isNaN(a) == true){
+          alert('문자 입력 금지');
+          this.month = 1;
+        }
+
+      },
+    }
 }
 </script>
 

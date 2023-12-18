@@ -1,7 +1,8 @@
 <template>
 
-
-  <Modal @closeBtn = "모달창열렸니 = false;" :원룸들= "원룸들" :누른버튼="누른버튼" :모달창열렸니="모달창열렸니" />
+  <Transition name="fade">
+    <Modal @closeBtn = "모달창열렸니 = false;" :원룸들= "원룸들" :누른버튼="누른버튼" :모달창열렸니="모달창열렸니" />
+  </Transition>
 
   <!-- <div class="black-bg" v-if="모달창열렸니 == true">
     <div class="white-bg">
@@ -20,7 +21,7 @@
 
   <Discount/>
 
-  <img alt="Vue logo" src="./assets/logo.png">
+  <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
   <!-- <div v-for="(a,i) in products" :key="i">
     <h4>{{a}}</h4>
     <p>50 만원</p>tjdn
@@ -134,6 +135,32 @@ div{
   padding : 10px;
   margin : 10px;
   border-radius: 5px;
-
 }
+
+.fade-enter-from{
+  transform: translateY(-1000px);
+}
+
+.fade-enter-active{
+  transition: all 1s;
+}
+
+.fade-enter-to{
+  transform: translateY(0px);
+}
+
+
+.fade-leave-from{
+  opacity: 1;
+}
+
+.fade-leave-active{
+  transition: all 1s;
+}
+
+.fade-leave-to{
+  opacity: 0;
+}
+
+
 </style>
