@@ -51,9 +51,16 @@ export default {
           alert('문자 입력 금지');
           this.month = 1;
         }
-
       },
-    }
+
+    },
+    beforeUpdate() {
+      if(this.month == 2){
+        alert('2 입력함 - beforeUpdate 활용 ');
+        this.month = 3;
+      }
+    },
+
 }
 </script>
 

@@ -105,24 +105,18 @@ export default {
     Card : Card,
   },
 
-  mounted() {  // lifecycle hook
-    setTimeout(() => {
-      this.showDiscount = false;
-    }, 2000);
-  },
+  // mounted() {  // lifecycle hook
+  //   setTimeout(() => {
+  //     this.showDiscount = false;
+  //   }, 2000);
 
+  // },
 
+  
   
 }
 </script>
-// 숙제1.
-// discount 1초마다 1%감소
-<!-- setInterval(() => {
-  
-}, 1000); -->
 
-// 숙제2.
-// 모달창의 input창에 2를 기입했을 대 알림창 띄우기
 
 <style>
 #app {
